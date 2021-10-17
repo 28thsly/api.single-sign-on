@@ -63,11 +63,13 @@ class LoginController extends Controller
                 //Step 5: check for password match and authorize the user  
                 if( Hash::check($request->password, $user->password) ) 
                 {
-                    $token = $user->createToken($request->username)->accessToken;
+                    $token = $user->createToken('Laravel Password Grant Client')->accessToken;
 
                     return response()->json([
                         'message' => 'Authentication successful',
-                        'username' => $request->username,
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'phone_number' => $user->phone_number,
                         'role' => $user->role,
                         'token' => $token,
                     ], 200);
