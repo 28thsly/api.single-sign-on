@@ -41,7 +41,7 @@ class RegisterController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255',
                 'phone' => 'required|string|max:15',
-                'password' => 'required|string|min:6|confirmed',
+                'password' => 'required|string|min:6',
                 'role' => 'required|string|max:15'
             ]);
             
@@ -63,15 +63,15 @@ class RegisterController extends Controller
                 'message' => 'User created successfully',
                 'name' => $user->name,
                 'email' => $user->email,
-                'phone_number' => $user->phone_number,
+                'phone' => $user->phone,
                 'role' => $user->role,
                 'token' => $token,
             ], 201);
 
         } catch (\Exception $e) {
 
-            return response()->json([ 'exception' => $e->getMessage() ], 422);
-            
+            return response()->json([ 'exception' => 'Something went wrong' ], 422);
+                   
         }
 
     }

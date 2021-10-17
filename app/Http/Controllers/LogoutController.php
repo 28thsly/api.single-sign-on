@@ -28,7 +28,7 @@ class LogoutController extends Controller
         try {
 
             //retrieve user's token and destroy it
-            $token = $request->user()->token();
+            $token = $request->user();//->token();
             $token->revoke();
     
             //return a success maessage to the client
@@ -38,7 +38,7 @@ class LogoutController extends Controller
 
         } catch (\Exception $e) {
 
-            return response()->json([ 'exception' => $e->getMessage() ], 422);
+            return response()->json([ 'exception' => 'Something went wrong' ], 422);            
             
         }
 

@@ -35,7 +35,7 @@ class LoginController extends Controller
             //Step 1: validate requests from user
             $validator = Validator::make($request->all(), [
                 'username' => 'required|string|max:255',
-                'password' => 'required|string|min:6|confirmed',
+                'password' => 'required|string|min:6',
             ]);
             
             if($validator->fails())
@@ -45,7 +45,7 @@ class LoginController extends Controller
 
             //Step 2: find the user using email or phone in the DB
             $user = User::where('email', $request->username)
-                            ->orWhere('phone_number', $request->username)
+                            ->orWhere('phone', $request->username)
                             ->first();
                             
             //Step 3: confirm the user exists                
@@ -69,7 +69,7 @@ class LoginController extends Controller
                         'message' => 'Authentication successful',
                         'name' => $user->name,
                         'email' => $user->email,
-                        'phone_number' => $user->phone_number,
+                        'phone' => $user->phone,
                         'role' => $user->role,
                         'token' => $token,
                     ], 200);
@@ -87,7 +87,7 @@ class LoginController extends Controller
 
         } catch (\Exception $e) {
 
-            return response()->json([ 'exception' => $e->getMessage() ], 422);
+            return response()->json([ 'exception' => 'Something went wrong' ], 422);
             
         }
 
