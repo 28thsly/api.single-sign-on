@@ -52,7 +52,7 @@
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<!-- <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -75,7 +75,7 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
+</details> -->
 
 
 
@@ -101,7 +101,7 @@ Use the `BLANK_README.md` to get started. -->
 
 ### Built With
 
-SSO is built with following:
+SSO is built with the following:
 
 * [Laravel](https://laravel.com)
 * [Laravel Passport](https://laravel.com/docs/8.x/passport)
@@ -159,7 +159,7 @@ _For more examples, please refer to the [Documentation](https://documenter.getpo
 
 - [x] Implement Basic Authentication
 - [x] Implement Password Reset
-- [] Implement 2FA
+- [ ] Implement 2FA
 
 See the [open issues](https://github.com/28thsly/api.single-sign-on/issues) for a full list of proposed features (and known issues).
 
