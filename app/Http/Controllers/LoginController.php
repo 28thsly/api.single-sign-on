@@ -87,7 +87,7 @@ class LoginController extends Controller
 
         } catch (\Exception $e) {
 
-            return response()->json([ 'exception' => 'Something went wrong' ], 422);
+            return response()->json([ 'exception' => $e->getMessage() ], 422);
             
         }
 
